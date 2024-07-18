@@ -1,2 +1,1 @@
-[ {"cucumber":5,
-    "tomato":6}]
+[object Object]

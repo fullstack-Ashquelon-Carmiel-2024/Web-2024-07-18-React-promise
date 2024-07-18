@@ -82,13 +82,22 @@ fsPromises.readFile(__filename, "utf8")
 readFile('./data/salad.JSON',"utf-8")
     .then(data => {
         console.log(data)
+        console.log(data[0].cucumber)
         return data
     })
+    .then(data => JSON.parse(data))
     .then((data) => {
+        console.log(`now is object`)
+        console.log(data[0].cucumber)
         mkdir('data02')
-        return data
+        return JSON.stringify(data)
     })
     .then((data) => {
         writeFile('./data02/text02.txt',data)
     })
     .catch(err => console.log(err.message))
+
+
+/* const somePromiseFunction = new Promise((resolve,reject) => {
+     // Each promise is a function of class "Promise"
+}) */
