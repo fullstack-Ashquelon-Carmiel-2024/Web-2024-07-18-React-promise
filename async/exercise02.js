@@ -11,3 +11,9 @@ Promise.resolve().then(() => {
 });
 
 console.log('Script end'); 
+
+// Script start
+// Script end
+// Promise 1
+// Promise 2
+// setTimeout

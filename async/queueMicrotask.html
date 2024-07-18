@@ -29,8 +29,8 @@
     setTimeout(() => {
         console.log(`My timeout has finished at ${i}`)
     })
-    /* window.queueMicrotask(func01); */
-     Promise.resolve().then(() => func01()); 
+     window.queueMicrotask(func01); 
+     /* Promise.resolve().then(() => func01()); */ 
     /* process.nextTick(func01); - in NodeJS */
     console.log(`after queueMicrotask`);
     //queueMicrotask() is a function that runs after the current task

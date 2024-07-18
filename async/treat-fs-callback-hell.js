@@ -69,9 +69,26 @@ readFile(__filename, { encoding: "utf8" })
 // no util.promisify!!!
 
 
-// const { readFile, mkdir, writeFile } = require("fs/promises");
-/* readFile(__filename, { encoding: "utf8" })
+const { readFile, mkdir, writeFile } = require("fs/promises");
+/* const fsPromises = require("fs/promises");
+fsPromises.readFile(__filename, { encoding: "utf8" })
   .then(data => console.log(data));
-readFile(__filename, "utf8")
-  .then(data => console.log(data)); */
 
+fsPromises.readFile(__filename, "utf8")
+  .then(data => console.log(data)); */ 
+
+// MISSION: use somewhere one more "then" and perform data.json()
+// and say, how many cucumbers we should put into the salad
+readFile('./data/salad.JSON',"utf-8")
+    .then(data => {
+        console.log(data)
+        return data
+    })
+    .then((data) => {
+        mkdir('data02')
+        return data
+    })
+    .then((data) => {
+        writeFile('./data02/text02.txt',data)
+    })
+    .catch(err => console.log(err.message))
